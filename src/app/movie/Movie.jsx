@@ -36,17 +36,21 @@ export const Movie = ({ targetMovie }) => {
   const splittedTarget = targetMovie.split("%20").join(" ");
   var average = movieInfo?.vote_average;
 
+
+
+
+
   useEffect(() => {
     const url =
       "https://api.themoviedb.org/3/search/movie?query=" +
       targetMovie +
-      "&include_adult=false&language=en-US&page=1";
+      "&include_adult=false&language=en-US&page=1&api_key=aad052a118ea779c5c2ead0c2d24a661";
     const options = {
       method: "GET",
       headers: {
         accept: "application/json",
         Authorization:
-          "Bearer " +process.env.API_AUTH,
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYWQwNTJhMTE4ZWE3NzljNWMyZWFkMGMyZDI0YTY2MSIsInN1YiI6IjY2M2JlMjE1NDdhODA4YTcxOGE4ZTI4ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zABgE3RPZkyCsSvToIoRCrhd6MmVgRgcd9tCjnVF0lg",
       },
     };
     async function getData() {

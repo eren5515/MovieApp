@@ -6,12 +6,14 @@ import MovieCard from "./MovieCard";
 
 
 
-
 function MovieList() {
   const [movieList, setMovieList] = useState([]);
 
+
+
   useEffect(() => {
     const getData = async () => {
+      console.log(process.env.API_AUTH)
     
 
         const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=aad052a118ea779c5c2ead0c2d24a661';
@@ -19,7 +21,7 @@ function MovieList() {
           method: 'GET',
           headers: {
             accept: 'application/json',
-            Authorization:'Bearer '+process.env.API_AUTH
+            Authorization:'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYWQwNTJhMTE4ZWE3NzljNWMyZWFkMGMyZDI0YTY2MSIsInN1YiI6IjY2M2JlMjE1NDdhODA4YTcxOGE4ZTI4ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zABgE3RPZkyCsSvToIoRCrhd6MmVgRgcd9tCjnVF0lg'
           }
         };
         
