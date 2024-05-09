@@ -1,4 +1,3 @@
-import Header from "@/components/Header/Header.jsx"
 import Jumbotron from "@/components/Jumbotron/Jumbotron";
 import MovieList from "@/components/MovieList/MovieList";
 export default function Home() {
@@ -6,7 +5,6 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Jumbotron></Jumbotron>
       <MovieList></MovieList>
-     
     </main>
   );
 }

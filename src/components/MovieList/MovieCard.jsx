@@ -1,14 +1,18 @@
 import "@/components/MovieList/MovieCard.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function MovieCard({ movieData }) {
   return (
     <div className="movie-card">
-      <img
-        src={"http://image.tmdb.org/t/p/w500/" + movieData.poster_path}
-      ></img>
+      <Link href={"/movie/" + movieData.title}>
+        <img
+          src={"http://image.tmdb.org/t/p/w500/" + movieData.poster_path}
+          
+        ></img>
+      </Link>
       <div className="movie-card-info">
         <h2>
           <FontAwesomeIcon
@@ -18,7 +22,9 @@ function MovieCard({ movieData }) {
           {"  "}
           {movieData.vote_average.toFixed(1)}
         </h2>
-        <h1>{movieData.title}</h1>
+        <Link href={"/movie/" + movieData.title}>
+          <h1>{movieData.title}</h1>
+        </Link>
         <h2>{movieData.release_date.split("-")[0]}</h2>
       </div>
     </div>

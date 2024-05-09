@@ -1,0 +1,26 @@
+.about-page {
+  padding: 5rem;
+
+  display: flex;
+  gap: 5rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.about-left {
+  width: 60%;
+}
+
+.about-right {
+    img {
+        width: 24rem;
+    }
+}
