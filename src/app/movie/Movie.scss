@@ -1,10 +1,11 @@
 .movie-detail-wrapper {
     width: 100%;
-    padding: 3rem 16rem;
+    padding: 8rem 16rem;
+    padding-top: 5rem;
     display: flex;
     flex-direction: column;
     gap: 3rem;
-
+position: relative;
 
     h1 {
         font-size: 3rem;
@@ -67,10 +68,13 @@
     }
 }
 
+.movie-detail-header {
+    margin-bottom: 2rem;
+}
 
 .movie-detail-poster {
     width: 22rem;
-    border-radius: 16px;
+    border-radius: 20px;
 }
 
 
@@ -84,4 +88,59 @@
     width: 70%;
     font-size: 1.5rem;
 
+}
+
+.movie-detail-bg {
+    position: absolute;
+    opacity: 15%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    height: 100%;
+}
+
+.movie-detail-content {
+    z-index: 33;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+    .movie-detail-div {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .movie-detail-wrapper {
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        padding:1rem 2rem;
+    }
+
+    .detail-genre-div {
+        display: none;
+    }
+
+    .movie-detail-overview {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .movie-detail-right {
+        padding: 1rem;
+    }
+   
+}
+
+@media screen and (max-width: 1100px) {
+
+    .movie-detail-div {
+        flex-direction: column;
+        align-items: center;
+    }
 }

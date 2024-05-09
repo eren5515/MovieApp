@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import "@/app/movie/Movie.scss";
+import MovieApi from "./MovieApi";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
@@ -36,40 +37,27 @@ export const Movie = ({ targetMovie }) => {
   const splittedTarget = targetMovie.split("%20").join(" ");
   var average = movieInfo?.vote_average;
 
-
-
-
-
   useEffect(() => {
-    const url =
-      "https://api.themoviedb.org/3/search/movie?query=" +
-      targetMovie +
-      "&include_adult=false&language=en-US&page=1&api_key=aad052a118ea779c5c2ead0c2d24a661";
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYWQwNTJhMTE4ZWE3NzljNWMyZWFkMGMyZDI0YTY2MSIsInN1YiI6IjY2M2JlMjE1NDdhODA4YTcxOGE4ZTI4ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zABgE3RPZkyCsSvToIoRCrhd6MmVgRgcd9tCjnVF0lg",
-      },
+    const getData = async () => {
+    
+       const data = await MovieApi(targetMovie);
+
+      setMovieInfo(data?.results[0]);
     };
-    async function getData() {
-      const response = await fetch(url, options);
-      const data = await response.json();
-      console.log(data);
-      console.log(genreMap.get(data.results[0].genre_ids[0]));
-
-      setMovieInfo(data.results[0]);
-    }
-
     getData();
   }, []);
 
   return (
     <div className="movie-detail-wrapper">
       {movieInfo && (
-        <>
-          <h1>Movie Detail</h1>
+        <img
+          className="movie-detail-bg"
+          src={"http://image.tmdb.org/t/p/w500/" + movieInfo.backdrop_path}
+        ></img>
+      )}
+      {movieInfo && (
+        <div className="movie-detail-content">
+          <h1 className="movie-detail-header">Movie Detail</h1>
           <div className="movie-detail-div">
             <img
               className="movie-detail-poster"
@@ -86,7 +74,9 @@ export const Movie = ({ targetMovie }) => {
                 </h2>
                 <div className="detail-genre-div">
                   <h3>{genreMap.get(movieInfo.genre_ids[0])}</h3>
-                  <h3>{genreMap.get(movieInfo.genre_ids[1])}</h3>
+                  {movieInfo.genre_ids[1] && (
+                    <h3>{genreMap.get(movieInfo.genre_ids[1])}</h3>
+                  )}
                 </div>
               </div>
               <h3>{movieInfo.release_date.split("-")[0]}</h3>
@@ -94,7 +84,7 @@ export const Movie = ({ targetMovie }) => {
               <p className="movie-detail-overview">{movieInfo.overview}</p>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
