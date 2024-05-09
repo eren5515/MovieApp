@@ -27,7 +27,7 @@ function MovieList() {
         const data = await response.json();
           console.log(data);
 
-      setMovieList(data.results);
+      setMovieList(data?.results);
     };
     getData();
   }, []);
@@ -35,9 +35,10 @@ function MovieList() {
 
   return <div className="movie-list-container">
     <h1 className="movie-list-header">Popular Movies</h1>
-    <div className="movie-list">{movieList.map((movie, index) => 
+    {movieList && <div className="movie-list">{movieList.map((movie, index) => 
     <MovieCard key={index} movieData={movie}></MovieCard>)}</div>
-  </div>;
+  }
+  </div>
 }
 
 export default MovieList;

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 function MovieCard({ movieData }) {
+  var average= movieData.vote_average;
   return (
     <div className="movie-card">
       <Link href={"/movie/" + movieData.title}>
@@ -20,7 +21,7 @@ function MovieCard({ movieData }) {
             style={{ color: "var(--color-first)" }}
           />
           {"  "}
-          {movieData.vote_average.toFixed(1)}
+          {Number(average).toFixed(1)}
         </h2>
         <Link href={"/movie/" + movieData.title}>
           <h1>{movieData.title}</h1>
