@@ -1,0 +1,33 @@
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 15rem;
+    border-top: 2px solid #1B1A55;
+    margin-top: 5rem;
+    gap: 1rem;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+
+    h1, a{
+        font-size: 1.2rem;
+    }
+    a:hover {
+        color: white;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    span:hover {
+        color: white;
+    }
+}
