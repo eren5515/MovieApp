@@ -19,7 +19,7 @@ function MovieList() {
           method: 'GET',
           headers: {
             accept: 'application/json',
-            Authorization:'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYWQwNTJhMTE4ZWE3NzljNWMyZWFkMGMyZDI0YTY2MSIsInN1YiI6IjY2M2JlMjE1NDdhODA4YTcxOGE4ZTI4ZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zABgE3RPZkyCsSvToIoRCrhd6MmVgRgcd9tCjnVF0lg'
+            Authorization:'Bearer '+process.env.API_AUTH
           }
         };
         
