@@ -9,8 +9,8 @@ header {
   z-index: 2222;
   padding:1% 6%;
   box-shadow: 0px 10px 15px -7px rgba(1,1,1,1); 
-  border: 2px solid #1B1A55;
-   background-color: #070f2b;
+  border: 2px solid var(--color-second);
+   background-color: var(--color-bg);
 
   .nav-menu a {
     color: var(--color-first);
@@ -27,7 +27,7 @@ header {
   }
   .nav-menu a:hover {
     color: white;
-    background-color: #1B1A55;
+    background-color: var(--color-second);
   }
 }
 
